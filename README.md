@@ -1,5 +1,10 @@
 # Unity3D-RPG-Game
 
+Description
+-----------
+
+Some basic description here
+
 Commit Log
 -----------
 
