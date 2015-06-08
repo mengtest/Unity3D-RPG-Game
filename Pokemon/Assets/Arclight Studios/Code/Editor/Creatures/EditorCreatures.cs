@@ -60,7 +60,7 @@ namespace ArclightStudios.Code.Editor {
 						_creatureSelectedIndex = i;
 					}
 
-					if ( GUILayout.Button ( "x", GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
+					if ( GUILayout.Button ( trashcan, GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
 						if ( EditorUtility.DisplayDialog (
 							"Delete " + Database.creatures.Get ( i ).Name,
 							"Are you sure you want to delete " + Database.creatures.Get ( i ).Name + " from the database?",
@@ -183,7 +183,7 @@ namespace ArclightStudios.Code.Editor {
 						_attackSelectedIndexes [ i ] = EditorGUILayout.Popup ( "", _attackSelectedIndexes [ i ], options );
 						_creature.Attacks [ i ] = Database.attacks.Get ( _attackSelectedIndexes [ i ] );
 
-						if ( GUILayout.Button ( "x", GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
+						if ( GUILayout.Button ( trashcan, GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
 							_creature.Attacks.RemoveAt ( i );
 						}
 					GUILayout.EndHorizontal ( );
@@ -192,25 +192,25 @@ namespace ArclightStudios.Code.Editor {
 		}
 
 		private void ShowSkillList ( ) {
-			if ( _skillSelectedIndexes.Count != _creature.Skills.Count ) {
-				for ( int i = 0; i < _creature.Skills.Count; i++ ) {
-					_skillSelectedIndexes.Insert ( i, Database.skills.IndexOf ( _creature.Skills [ i ] ) );
-				}
-			}
-
 			if ( _creature.Skills != null && _creature.Skills.Count <= Database.skills.Count ) {
+				if ( _skillSelectedIndexes.Count != _creature.Skills.Count ) {
+					for ( int i = 0; i < _creature.Skills.Count; i++ ) {
+						_skillSelectedIndexes.Insert ( i, Database.skills.IndexOf ( _creature.Skills [ i ] ) );
+					}
+				}
+
 				for ( int i = 0; i < _creature.Skills.Count; i++ ) {
 					string [ ] options = new string [ Database.skills.Count ];
 
 					for ( int opt = 0; opt < options.Length; opt++ ) {
-						options [ opt ] = Database.skills.Get ( i ).Name;
+						options [ opt ] = Database.skills.Get ( opt ).Name;
 					}
 
 					GUILayout.BeginHorizontal ( GUILayout.ExpandWidth ( true ) );
 						_skillSelectedIndexes [ i ] = EditorGUILayout.Popup ( "", _skillSelectedIndexes [ i ], options );
 						_creature.Skills [ i ] = Database.skills.Get ( _skillSelectedIndexes [ i ] );
 
-						if ( GUILayout.Button ( "x", GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
+						if ( GUILayout.Button ( trashcan, GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
 							_creature.Skills.RemoveAt ( i );
 						}
 					GUILayout.EndHorizontal ( );

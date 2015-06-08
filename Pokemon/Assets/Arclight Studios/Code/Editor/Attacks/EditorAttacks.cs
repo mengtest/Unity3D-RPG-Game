@@ -54,7 +54,7 @@ namespace ArclightStudios.Code.Editor {
 						_attackSelectedIndex = i;
 					}
 
-					if ( GUILayout.Button ( "x", GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
+					if ( GUILayout.Button ( trashcan, GUILayout.Width ( BUTTON_SIZE ), GUILayout.Height ( BUTTON_SIZE ) ) ) {
 						if ( EditorUtility.DisplayDialog (
 							"Delete " + Database.attacks.Get ( i ).Name,
 							"Are you sure you want to delete " + Database.attacks.Get ( i ).Name + " from the database?",

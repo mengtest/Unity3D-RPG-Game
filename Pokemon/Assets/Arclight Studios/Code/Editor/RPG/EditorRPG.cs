@@ -11,16 +11,18 @@ namespace ArclightStudios.Code.Editor {
 			Skills
 		}
 
+		private Texture2D trashcan = Resources.Load ( "trashcan" ) as Texture2D;
+
 		State state;
-		const int BUTTON_SIZE = 15;
+		const int BUTTON_SIZE = 18;
 		const int SPRITE_SIZE = 30;
 		const int LIST_SIZE = 200;
 
-		[ MenuItem ( "Arclight/RPG Editor %#E" ) ]
+		[ MenuItem ( "Arclight/RPG Editor %#e" ) ]
 		public static void Init ( ) {
 			EditorRPG window = GetWindow < EditorRPG > ( );
 			window.title = "RPG Editor";
-			window.minSize = new Vector2 ( 400, 300 );
+			window.minSize = new Vector2 ( 500, 300 );
 			window.Show ( );
 
 			Database.Create ( );
@@ -51,6 +53,12 @@ namespace ArclightStudios.Code.Editor {
 			GUILayout.BeginHorizontal ( "Box", GUILayout.ExpandWidth ( true ) );
 			BarBottom ( );
 			GUILayout.EndHorizontal ( );
+		}
+
+		void ResetAllSelections ( ) {
+			_creature = null;
+			_attack = null;
+			_skill = null;
 		}
 	}
 }

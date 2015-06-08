@@ -1,5 +1,4 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ArclightStudios.Code.Editor {
 	public partial class EditorRPG {
@@ -15,6 +14,8 @@ namespace ArclightStudios.Code.Editor {
 
 		private void TabCreatures ( ) {
 			if ( GUILayout.Button ( "Creatures" ) ) {
+				ResetAllSelections ( );
+
 				if ( state != State.Creatures ) {
 					state = State.Creatures;
 				} else {
@@ -25,6 +26,8 @@ namespace ArclightStudios.Code.Editor {
 
 		private void TabAttacks ( ) {
 			if ( GUILayout.Button ( "Attacks" ) ) {
+				ResetAllSelections ( );
+
 				if ( state != State.Attacks ) {
 					state = State.Attacks;
 				} else {
@@ -35,6 +38,8 @@ namespace ArclightStudios.Code.Editor {
 
 		private void TabSkills ( ) {
 			if ( GUILayout.Button ( "Skills" ) ) {
+				ResetAllSelections ( );
+
 				if ( state != State.Skills ) {
 					state = State.Skills;
 				} else {

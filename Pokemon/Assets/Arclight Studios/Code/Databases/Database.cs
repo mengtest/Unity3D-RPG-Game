@@ -6,10 +6,10 @@
 		public static DatabaseAttack attacks;
 		public static DatabaseSkill skills;
 
-		public static void Create ( ) {
-			creatures = DatabaseCreature.GetDatabase < DatabaseCreature > ( DATABASE_FOLDER_NAME, "arcCreatures", true );
-			attacks = DatabaseAttack.GetDatabase < DatabaseAttack > ( DATABASE_FOLDER_NAME, "arcAttacks" );
-			skills = DatabaseSkill.GetDatabase < DatabaseSkill > ( DATABASE_FOLDER_NAME, "arcSkills" );
+		public static void Create ( bool forceFileCreation = false ) {
+			creatures = DatabaseCreature.GetDatabase < DatabaseCreature > ( DATABASE_FOLDER_NAME, "arcCreatures", forceFileCreation );
+			attacks = DatabaseAttack.GetDatabase < DatabaseAttack > ( DATABASE_FOLDER_NAME, "arcAttacks", forceFileCreation );
+			skills = DatabaseSkill.GetDatabase < DatabaseSkill > ( DATABASE_FOLDER_NAME, "arcSkills", forceFileCreation );
 		}
 	}
 }

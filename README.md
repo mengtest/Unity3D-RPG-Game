@@ -13,3 +13,5 @@ Commit Log
 2: Basic Database Setup with RPG Editor Foundations
 
 8: Creature and Attack Database Setup
+
+9: Ongoing Database Edits

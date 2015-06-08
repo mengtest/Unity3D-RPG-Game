@@ -11,4 +11,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91d434717bf35bb4cbe3a9a998118470, type: 3}
   m_Name: arcCreatures
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: Test 1
+    _icon: {fileID: 0}
+    _attacks:
+    - _name: Test Attack 1
+      _icon: {fileID: 0}
+      _strength: 0
+    _skills:
+    - _name: Test Skill 1
+      _icon: {fileID: 0}
+      _strength: 0
+  - _name: Test 2
+    _icon: {fileID: 0}
+    _attacks:
+    - _name: Test Attack 2
+      _icon: {fileID: 0}
+      _strength: 0
+    _skills:
+    - _name: Test Skill 2
+      _icon: {fileID: 0}
+      _strength: 0

@@ -11,4 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2e67d3ac2b99e488485cb05ec17235, type: 3}
   m_Name: arcSkills
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: Test Skill 1
+    _icon: {fileID: 0}
+    _strength: 0
+  - _name: Test Skill 2
+    _icon: {fileID: 0}
+    _strength: 0

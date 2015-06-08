@@ -11,4 +11,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46cf261b194e6464383cd2ce98cac20e, type: 3}
   m_Name: arcAttacks
   m_EditorClassIdentifier: 
-  database: []
+  database:
+  - _name: Test Attack 1
+    _icon: {fileID: 0}
+    _strength: 0
+  - _name: Test Attack 2
+    _icon: {fileID: 0}
+    _strength: 0
