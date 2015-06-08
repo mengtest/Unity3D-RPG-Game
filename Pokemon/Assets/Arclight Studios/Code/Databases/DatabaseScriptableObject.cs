@@ -25,6 +25,23 @@ namespace ArclightStudios.Code.Databases {
 			MarkDirty ( );
 		}
 
+		public int IndexOf ( T item ) {
+			int index = -1;
+
+			if ( item == null ) {
+				return 0;
+			}
+
+			for ( int i = 0; i < Count; i++ ) {
+				if ( Get ( i ).ToString ( ) == item.ToString ( ) ) {
+					index = i;
+					break;
+				}
+			}
+
+			return index;
+		}
+
 		public void Remove ( T item ) {
 			database.Remove ( item );
 			MarkDirty ( );
@@ -36,6 +53,10 @@ namespace ArclightStudios.Code.Databases {
 		}
 
 		public T Get ( int index ) {
+			if ( index < 0 || index >= database.Count ) {
+				return null;
+			}
+
 			return database.ElementAt ( index );
 		}
 
@@ -43,17 +64,17 @@ namespace ArclightStudios.Code.Databases {
 			EditorUtility.SetDirty ( this );
 		}
 
-		public static U GetDatabase < U > ( string databasePath, string databaseName ) where U : ScriptableObject {
+		public static U GetDatabase < U > ( string databasePath, string databaseName, bool forceFileCreation = false ) where U : ScriptableObject {
 			string fullPath = @"Assets/" + databasePath + "/" + databaseName + ".asset";
 
 			U database = AssetDatabase.LoadAssetAtPath ( fullPath, typeof ( U ) ) as U;
 
-			if ( database == null ) {
+			if ( database == null || forceFileCreation ) {
 				if ( !AssetDatabase.IsValidFolder ( @"Assets/" + databasePath ) ) {
 					AssetDatabase.CreateFolder ( @"Assets", databasePath );
 				}
 
-				database = CreateInstance<U> ( ) as U;
+				database = CreateInstance < U > ( ) as U;
 
 				AssetDatabase.CreateAsset ( database, fullPath );
 				AssetDatabase.SaveAssets ( );

@@ -4,6 +4,10 @@ using UnityEngine;
 namespace ArclightStudios.Code.Editor {
 	public partial class EditorRPG {
 		void BarTop ( ) {
+			if ( Databases.Database.attacks == null ) {
+				Databases.Database.Create ( );
+			}
+
 			TabCreatures ( );
 			TabAttacks ( );
 			TabSkills ( );

@@ -1,34 +1,49 @@
-﻿using System;
-using ArclightStudios.Code.Interfaces;
+﻿using ArclightStudios.Code.Interfaces;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ArclightStudios.Code {
-	[ Serializable ]
+	[ System.Serializable ]
 	public class Creature : ICreature {
 		[ SerializeField ]
 		string _name;
 
-		public Creature ( string name ) {
-			_name = name;
+		[ SerializeField ]
+		Sprite _icon;
+
+		[ SerializeField ]
+		List < Attack > _attacks;
+
+		[ SerializeField ]
+		List < Skill > _skills;
+
+		public Creature ( ) {
+			_name = "";
+			_icon = new Sprite ( );
+			_attacks = new List < Attack > ( );
+			_skills = new List < Skill > ( );
 		}
-		
+
 		public string Name {
 			get { return _name; }
+			set { _name = value; }
 		}
 
 		public Sprite Icon {
-			get { throw new NotImplementedException ( ); }
-			set { throw new NotImplementedException ( ); }
-		}
-		public Attack [ ] Attacks {
-			get { throw new NotImplementedException ( ); }
-			set { throw new NotImplementedException ( ); }
+			get { return _icon; }
+			set { _icon = value; }
 		}
 
+		public List < Attack > Attacks {
+			get { return _attacks; }
+		}
 
-		public Skill [ ] Skills {
-			get { throw new NotImplementedException ( ); }
-			set { throw new NotImplementedException ( ); }
+		public List < Skill > Skills {
+			get { return _skills; }
+		}
+
+		public override string ToString ( ) {
+			return "ArclightStudios.Code.Creature." + _name;
 		}
 	}
 }

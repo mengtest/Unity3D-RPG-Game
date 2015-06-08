@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace ArclightStudios.Code.Interfaces {
 	public interface ICreature {
-		string Name { get; }
+		string Name { get; set; }
 		Sprite Icon { get; set; }
-		Attack [ ] Attacks { get; set; }
-		Skill [ ] Skills { get; set; }
+		List < Attack > Attacks { get; }
+		List < Skill > Skills { get; }
 	}
 }

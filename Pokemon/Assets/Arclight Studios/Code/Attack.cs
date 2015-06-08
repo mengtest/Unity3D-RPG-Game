@@ -1,24 +1,41 @@
-﻿using System;
-using ArclightStudios.Code.Interfaces;
+﻿using ArclightStudios.Code.Interfaces;
 using UnityEngine;
 
 namespace ArclightStudios.Code {
-	[ Serializable ]
+	[ System.Serializable ]
 	public class Attack : IAttack {
 		[ SerializeField ]
 		string _name;
 
-		public Attack ( string name ) {
-			_name = name;
+		[ SerializeField ]
+		Sprite _icon;
+
+		[ SerializeField ]
+		int _strength;
+
+		public Attack ( ) {
+			_name = "";
+			_icon = new Sprite ( );
+			_strength = 0;
 		}
 
 		public string Name {
 			get { return _name; }
+			set { _name = value; }
+		}
+		
+		public Sprite Icon {
+			get { return _icon; }
+			set { _icon = value; }
 		}
 
 		public int Strength {
-			get { throw new NotImplementedException ( ); }
-			set { throw new NotImplementedException ( ); }
+			get { return _strength; }
+			set { _strength = value; }
+		}
+
+		public override string ToString ( ) {
+			return "ArclightStudios.Code.Attack." + _name;
 		}
 	}
 }
